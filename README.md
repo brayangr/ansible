@@ -7,6 +7,8 @@ Proof of concepts of development environment setup with ansible.
 
 ### Hombrew
 
+Instalation instructions [here](https://brew.sh/)
+
 ### Ansible
 
 To install ansible you can run the next command
