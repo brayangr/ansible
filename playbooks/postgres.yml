@@ -1,0 +1,8 @@
+- name: Install Postgres
+  hosts: localhost
+  connection: local
+
+  tasks:
+  - name: Install Postgres
+    package:
+      name: postgres

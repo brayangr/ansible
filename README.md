@@ -18,7 +18,19 @@ brew install ansible
 
 ## Usage
 
-For now there is only one playbook for install rvm, you can use it with the following command
+For now there are two playbooks one for rvm and one for postgres
+
+To run the rvm one use:
 ```bash
 ansible-playbook playbooks/rvm.yml -i inventory
+```
+
+To run the postgres one use:
+```bash
+ansible-playbook playbooks/rvm.yml -i inventory
+```
+
+To run all use_
+```bash
+ansible-playbook playbooks/full_setup.yml -i inventory
 ```
