@@ -1,0 +1,13 @@
+- name: Install RVM
+  hosts: localhost
+  connection: local
+
+  tasks:
+  - name: Import RVM GPG key
+    shell: curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+
+  - name: Install RVM
+    shell: curl -sSL https://get.rvm.io | bash
+
+  - name: Install Ruby 2.5.5
+    shell: rvm install 2.5.5
