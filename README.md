@@ -5,7 +5,7 @@ Proof of concept of development environment setup with ansible.
 
 ## Requirements
 
-### Hombrew
+### Hombrew (OSX only)
 
 Instalation instructions [here](https://brew.sh/)
 
