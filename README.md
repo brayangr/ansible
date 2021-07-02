@@ -30,7 +30,7 @@ To run the postgres one use:
 ansible-playbook playbooks/rvm.yml -i inventory
 ```
 
-To run all use_
+To run all use:
 ```bash
 ansible-playbook playbooks/full_setup.yml -i inventory
 ```
