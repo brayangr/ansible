@@ -7,7 +7,7 @@ Proof of concept of development environment setup with ansible.
 
 ### Hombrew (OSX only)
 
-Instalation instructions [here](https://brew.sh/)
+Installation instructions [here](https://brew.sh/)
 
 ### Ansible
 
