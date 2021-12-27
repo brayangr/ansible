@@ -1,0 +1,27 @@
+- name: Install Zsh with Oh-My-Zsh
+  hosts: localhost
+  connection: local
+
+  tasks:
+  - name: Install dependencies
+    become: yes
+    package:
+      name:
+        - curl
+        - git
+
+  - name: Install Zsh
+    become: yes
+    package:
+      name: zsh
+      
+  - name: Install Oh-My-Zsh
+    shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    ignore_errors: yes
+
+  - name: Set Zsh as default shell
+    become: yes
+    user:
+      name: "{{ ansible_user_id }}"
+      shell: /bin/zsh
+
