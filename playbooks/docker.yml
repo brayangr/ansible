@@ -1,0 +1,25 @@
+- name: Install Docker
+  hosts: localhost
+  connection: local
+
+  tasks:
+  - name: Install docker package
+    become: yes
+    package:
+      name:
+        - docker
+
+  - name: Install docker-compose package
+    become: yes
+    package:
+      name:
+        - docker-compose
+
+  - name: Create docker group
+    become: yes
+    shell: sudo groupadd docker
+    ignore_errors: yes
+
+  - name: Add user to docker group
+    become: yes
+    shell: sudo usermod -a -G  docker $USER
