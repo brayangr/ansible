@@ -13,4 +13,4 @@
 
   - name: update-initframs
     become: yes
-    shell: sudo mkinitcpio -P
+    shell: sudo update-initframs -u
