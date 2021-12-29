@@ -1,0 +1,16 @@
+- name: Fix keychron function keys
+  hosts: localhost
+  connection: local
+
+  tasks:
+  - name: Create file
+    become: yes
+    shell: sudo touch /etc/modprobe.d/hid_apple.conf
+
+  - name: Add setting that fixes the problem
+    become: yes
+    shell: echo "options hid_apple fnmode=2" > /etc/modprobe.d/hid_apple.conf
+
+  - name: update-initframs
+    become: yes
+    shell: sudo mkinitcpio -P
