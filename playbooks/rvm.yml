@@ -2,6 +2,7 @@
   hosts: localhost
   connection: local
   tags:
+    - develop
     - ruby
 
   tasks:

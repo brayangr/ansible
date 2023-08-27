@@ -4,7 +4,7 @@
   vars:
     - neovim_path: "{{ lookup('env', 'HOME')}}/dependencies/neovim"
   tags:
-    - base-setup
+    - base
     - neovim
 
   tasks:
