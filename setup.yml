@@ -1,0 +1,4 @@
+- include: playbooks/rvm.yml
+- include: playbooks/postgres.yml
+- include: playbooks/nvim.yml
+- include: playbooks/brave.yml

@@ -5,9 +5,10 @@
   tasks:
   - name: Import RVM GPG key
     shell: curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+    tags:
+    - ruby
 
   - name: Install RVM
     shell: curl -sSL https://get.rvm.io | bash
-
-  - name: Install Ruby 2.5.5
-    shell: source ~/.rvm/scripts/rvm && rvm install 2.5.5
+    tags:
+    - ruby
