@@ -1,4 +1,6 @@
-- include: playbooks/rvm.yml
-- include: playbooks/postgres.yml
-- include: playbooks/nvim.yml
-- include: playbooks/brave.yml
+- import_playbook: playbooks/base_dependencies.yml
+- import_playbook: playbooks/docker.yml
+- import_playbook: playbooks/rvm.yml
+- import_playbook: playbooks/postgres.yml
+- import_playbook: playbooks/nvim.yml
+- import_playbook: playbooks/brave.yml

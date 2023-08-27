@@ -1,0 +1,19 @@
+- name: Install Base dependencies
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Apt update & upgrade
+      become: true
+      apt:
+        update_cache: yes
+        upgrade: yes
+      tags:
+        - base-setup
+
+    - name: Install dependencies
+      become: yes
+      package:
+        name:
+          - curl
+          - git

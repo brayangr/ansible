@@ -3,23 +3,32 @@
   connection: local
 
   tasks:
-  - name: Install docker package
-    become: yes
-    package:
-      name:
+    - name: Install docker package
+      become: yes
+      package:
+        name:
+          - docker
+      tags:
         - docker
 
-  - name: Install docker-compose package
-    become: yes
-    package:
-      name:
-        - docker-compose
+    - name: Install docker-compose package
+      become: yes
+      package:
+        name:
+          - docker-compose
+      tags:
+        - docker
 
-  - name: Create docker group
-    become: yes
-    shell: sudo groupadd docker
-    ignore_errors: yes
+    - name: Create docker group
+      become: yes
+      shell: groupadd docker
+      ignore_errors: yes
+      tags:
+        - docker
 
-  - name: Add user to docker group
-    become: yes
-    shell: sudo usermod -a -G  docker $USER
+    - name: Add user to docker group
+      become: yes
+      shell: usermod -a -G  docker $USER
+      tags:
+        - docker
+
