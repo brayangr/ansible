@@ -1,6 +1,8 @@
 - name: Fix keychron function keys
   hosts: localhost
   connection: local
+  tags:
+    - keychron
 
   tasks:
   - name: Create file

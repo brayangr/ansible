@@ -1,15 +1,17 @@
 - name: Install Base dependencies
   hosts: localhost
   connection: local
+  tags:
+    - base
+    - docker
+    - zsh
 
   tasks:
     - name: Apt update & upgrade
-      become: true
+      become: yes
       apt:
         update_cache: yes
         upgrade: yes
-      tags:
-        - base-setup
 
     - name: Install dependencies
       become: yes

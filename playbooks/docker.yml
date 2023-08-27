@@ -1,6 +1,8 @@
 - name: Install Docker
   hosts: localhost
   connection: local
+  tags:
+    - docker
 
   tasks:
     - name: Install docker package
@@ -8,27 +10,20 @@
       package:
         name:
           - docker
-      tags:
-        - docker
 
     - name: Install docker-compose package
       become: yes
       package:
         name:
           - docker-compose
-      tags:
-        - docker
 
     - name: Create docker group
       become: yes
       shell: groupadd docker
       ignore_errors: yes
-      tags:
-        - docker
 
     - name: Add user to docker group
       become: yes
       shell: usermod -a -G  docker $USER
-      tags:
-        - docker
+      ignore_errors: yes
 

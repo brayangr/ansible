@@ -1,6 +1,9 @@
 - name: Install Brave
   hosts: localhost
   connection: local
+  tags:
+    - base
+    - brave
 
   tasks:
     - name: Brave Browser archive-keyring.gpg download
@@ -8,9 +11,6 @@
       apt_key:
         url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc
         keyring: /etc/apt/trusted.gpg.d/brave-browser-release.gpg
-      tags:
-        - brave
-        - base-setup
 
     - name: Brave Browser PPA setting
       become: true
@@ -18,14 +18,9 @@
         repo: "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com stable main" 
         state: present
         update_cache: yes
-      tags:
-        - brave
-        - base-setup
 
     - name: Brave Browser apt installation
       become: true
       apt:
         name: brave-browser
-      tags:
-        - brave
-        - base-setup
+
