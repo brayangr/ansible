@@ -1,12 +1,26 @@
 - name: Install neoVim
   hosts: localhost
   connection: local
+  vars:
+    - neovim_path: "{{ lookup('env', 'HOME')}}/dependencies/neovim"
   tags:
     - base-setup
     - neovim
 
   tasks:
-  - name: Install package
+  - name: Clone neovim repo
+    git:
+      repo: https://github.com/neovim/neovim
+      dest: "{{ neovim_path }}"
+      version: stable
+  - name: build neovim
+    make:
+      chdir: "{{ neovim_path }}"
+      params:
+        CMAKE_BUILD_TYPE: RelWithDebInfo
+
+  - name: install neovim
     become: yes
-    package:
-      name: neovim
+    command: make install
+    args:
+      chdir: "{{ neovim_path }}"

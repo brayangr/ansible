@@ -5,6 +5,7 @@
     - base
     - docker
     - zsh
+    - neovim
 
   tasks:
     - name: Apt update & upgrade
@@ -17,5 +18,9 @@
       become: yes
       package:
         name:
-          - curl
           - git
+          - ninja-build
+          - gettext
+          - cmake
+          - unzip
+          - curl
