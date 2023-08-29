@@ -1,0 +1,26 @@
+- name: Install VsCode
+  hosts: localhost
+  connection: local
+  tags:
+    - development
+    - vscode
+
+  tasks:
+    - name: vscode archive-keyring.gpg download
+      become: true
+      apt_key:
+        url: https://packages.microsoft.com/keys/microsoft.asc
+        keyring: /etc/apt/trusted.gpg.d/microsoft.gpg
+
+    - name: vscode PPA setting
+      become: true
+      apt_repository:
+        repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+        state: present
+        update_cache: yes
+
+    - name: vscode apt installation
+      become: true
+      apt:
+        name: code
+

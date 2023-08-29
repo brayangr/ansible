@@ -4,3 +4,4 @@
 - import_playbook: playbooks/rvm.yml
 - import_playbook: playbooks/nvim.yml
 - import_playbook: playbooks/brave.yml
+- import_playbook: playbooks/vscode.yml
