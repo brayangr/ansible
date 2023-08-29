@@ -6,3 +6,4 @@
 - import_playbook: playbooks/brave.yml
 - import_playbook: playbooks/vscode.yml
 - import_playbook: playbooks/ssh.yml
+- import_playbook: playbooks/personal-projects.yml
