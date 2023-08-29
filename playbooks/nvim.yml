@@ -1,26 +1,19 @@
 - name: Install neoVim
   hosts: localhost
   connection: local
-  vars:
-    - neovim_path: "{{ lookup('env', 'HOME')}}/dependencies/neovim"
   tags:
     - base
     - neovim
 
   tasks:
-  - name: Clone neovim repo
-    git:
-      repo: https://github.com/neovim/neovim
-      dest: "{{ neovim_path }}"
-      version: stable
-  - name: build neovim
-    make:
-      chdir: "{{ neovim_path }}"
-      params:
-        CMAKE_BUILD_TYPE: RelWithDebInfo
+  - name: Add unstable ppa
+    become: true
+    apt_repository:
+      repo: ppa:neovim-ppa/unstable
+      state: present
+      update_cache: yes
 
-  - name: install neovim
-    become: yes
-    command: make install
-    args:
-      chdir: "{{ neovim_path }}"
+  - name: Install
+    become: true
+    apt:
+      name: neovim
