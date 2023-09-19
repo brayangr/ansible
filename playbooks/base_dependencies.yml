@@ -24,3 +24,4 @@
           - cmake
           - unzip
           - curl
+          - tmux

@@ -15,6 +15,5 @@
     - name: Personal Project Ansible
       git:
         repo: 'git@github.com:brayangr/ansible.git'
-        bare: true
         dest: "{{ project_path }}/ansible"
       when: ansible.stat.exists == False

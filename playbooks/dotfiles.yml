@@ -1,0 +1,39 @@
+- name: Dotfiles
+  hosts: localhost
+  connection: local
+  vars:
+    project_path: "{{ lookup('env', 'HOME') }}/.dotfiles"
+  tags:
+    - dotfiles
+
+  tasks:
+    - name: Install stow
+      become: yes
+      package:
+        name:
+          - stow
+    - name: dotfiles folder exists
+      stat:
+        path: "{{ project_path }}"
+      register: dotfiles
+
+    - name: Clonning dotfiles
+      git:
+        repo: 'git@github.com:brayangr/.dotfiles.git'
+        dest: "{{ project_path }}"
+      when: dotfiles.stat.exists == False
+
+    - name: Linking neovim dotfiles
+      shell: stow neovim
+      args:
+        chdir: "{{ project_path }}"
+
+    - name: Linking tmux dotfiles
+      shell: stow tmux
+      args:
+        chdir: "{{ project_path }}"
+
+    - name: Linking i3 dotfiles
+      shell: stow i3
+      args:
+        chdir: "{{ project_path }}"
