@@ -21,6 +21,8 @@
       git:
         repo: 'git@github.com:brayangr/.dotfiles.git'
         dest: "{{ project_path }}"
+        key_file: "{{ lookup('env', 'HOME') }}/.ssh/id_ed_25519"
+        accept_hostkey: true
       when: dotfiles.stat.exists == False
 
     - name: Linking neovim dotfiles

@@ -16,4 +16,6 @@
       git:
         repo: 'git@github.com:brayangr/ansible.git'
         dest: "{{ project_path }}/ansible"
+        key_file: "{{ lookup('env', 'HOME') }}/.ssh/id_ed_25519"
+        accept_hostkey: true
       when: ansible.stat.exists == False
