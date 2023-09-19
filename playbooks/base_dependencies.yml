@@ -25,3 +25,4 @@
           - unzip
           - curl
           - tmux
+          - chromium-browser
