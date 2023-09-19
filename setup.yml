@@ -5,5 +5,6 @@
 - import_playbook: playbooks/nvim.yml
 - import_playbook: playbooks/vscode.yml
 - import_playbook: playbooks/ssh.yml
+- import_playbook: playbooks/i3.yml
 - import_playbook: playbooks/personal-projects.yml
 - import_playbook: playbooks/dotfiles.yml
