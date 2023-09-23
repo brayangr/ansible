@@ -7,11 +7,12 @@
     - dotfiles
 
   tasks:
-    - name: Install stow
+    - name: Install stow and ripgrep
       become: yes
       package:
         name:
           - stow
+          - ripgrep
     - name: dotfiles folder exists
       stat:
         path: "{{ project_path }}"
