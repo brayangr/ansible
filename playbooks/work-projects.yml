@@ -1,0 +1,21 @@
+- name: Work projects
+  hosts: localhost
+  connection: local
+  vars:
+    project_path: "{{ lookup('env', 'HOME') }}/work"
+  tags:
+    - work-project
+
+  tasks:
+    - name: Ansible exists
+      stat:
+        path: "{{ project_path }}/ansible"
+      register: ansible
+
+    - name: Work Project Ansible
+      git:
+        repo: 'git@github.com:brayan-gonzalez-comunidad-feliz/ansible.git'
+        dest: "{{ project_path }}/ansible"
+        key_file: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+        accept_hostkey: true
+      when: ansible.stat.exists == False

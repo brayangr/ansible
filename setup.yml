@@ -8,3 +8,4 @@
 - import_playbook: playbooks/i3.yml
 - import_playbook: playbooks/personal-projects.yml
 - import_playbook: playbooks/dotfiles.yml
+- import_playbook: playbooks/work-projects.yml
