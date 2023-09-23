@@ -19,3 +19,8 @@
         key_file: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
         accept_hostkey: true
       when: ansible.stat.exists == False
+
+    - name: Set sshCommand on ansible
+      command: "git config core.sshCommand 'ssh -i ~/.ssh/id_rsa'"
+      args:
+        chdir: "{{ project_path }}/ansible"
