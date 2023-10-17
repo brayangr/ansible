@@ -40,3 +40,8 @@
       shell: stow i3
       args:
         chdir: "{{ project_path }}"
+
+    - name: Linking i3 dotfiles
+      shell: stow vscode
+      args:
+        chdir: "{{ project_path }}"
